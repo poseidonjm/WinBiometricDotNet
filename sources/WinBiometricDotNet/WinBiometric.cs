@@ -1546,6 +1546,23 @@ namespace WinBiometricDotNet
 
             ThrowWinBiometricException(hr);
         }
+		
+		/// <summary>
+        /// Gets the Current User.
+        /// </summary>
+        /// <returns><see cref="BiometricIdentity"/>.</returns>
+        public static BiometricIdentity GetCurrentUserIdentity()
+        {
+            unsafe
+            {
+                var hr = GetCurrentUserIdentity(out var identity);
+                if (hr != 0)
+                {
+                    ThrowWinBiometricException(hr);
+                }
+                return new BiometricIdentity(&identity);    
+            }
+        }
 
         #region Helpers
 

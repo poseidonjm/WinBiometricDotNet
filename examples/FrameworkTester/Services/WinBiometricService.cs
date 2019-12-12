@@ -428,6 +428,11 @@ namespace FrameworkTester.Services
         {
             WinBiometric.Wait(session);
         }
+		
+		public BiometricIdentity GetCurrentUserIdentity()
+        {
+            return WinBiometric.GetCurrentUserIdentity();
+        }
 
         #endregion
 
